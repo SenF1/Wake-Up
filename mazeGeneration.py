@@ -60,8 +60,4 @@ def maze(row,col):
     map.insert(0,borderRow)
     map.append(borderRow)
 
-    # Change to string since the numbers was in int for locating purpose
-    for row in range(rows+2):
-        for col in range(cols+2):
-            map[row][col] = str(map[row][col])
     return map
