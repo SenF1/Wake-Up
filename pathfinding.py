@@ -12,7 +12,6 @@ def pathSolution(maze, start, end, rows, cols):
     directionMap = dict()
 
     toVisit.append(start)
-    
     # Get the node with lowest f 
     while len(toVisit) > 0:
         current = toVisit[0]
