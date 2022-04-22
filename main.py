@@ -19,8 +19,8 @@ def onAppStart(app):
     winLocation = False
     app.end = (8,8)
     # Finding a winning location that is the farthest 
-    for row in range(app.mapSize-1,-1,-1):
-        for col in range(app.mapSize-1,-1,-1):
+    for col in range(app.mapSize-1,-1,-1):
+        for row in range(app.mapSize-1,-1,-1):
             if winLocation == False:
                 if (app.map[row][col] == 0):
                     directions = [(0,1),(1,0),(-1,0),(0,-1),(1,1),(-1,-1)]
@@ -71,26 +71,26 @@ def onAppStart(app):
     app.enemyy = 60
 
 # Control angle with mouse
-# def onMouseMove(app, mousex, mousey):
-#     if app.prevx != 0:
-#         angleDiff = app.prevx - mousex
-#         if angleDiff < 0:
-#             app.playerAngle += abs(angleDiff*0.005)
-#         else:
-#             app.playerAngle -= abs(angleDiff*0.005)
-#     app.prevx = mousex
+def onMouseMove(app, mousex, mousey):
+    if app.prevx != 0:
+        angleDiff = app.prevx - mousex
+        if angleDiff < 0:
+            app.playerAngle += abs(angleDiff*0.005)
+        else:
+            app.playerAngle -= abs(angleDiff*0.005)
+    app.prevx = mousex
 
-#     if app.prevy != 0:
-#         angleDiff = app.prevy - mousey
-#         if angleDiff < 0:
-#             app.playerAngleY -= abs(angleDiff) * 5
-#             if abs(app.playerAngleY) > app.height/10:
-#                 app.playerAngleY += abs(angleDiff) * 5
-#         else:
-#             app.playerAngleY += abs(angleDiff) * 5
-#             if abs(app.playerAngleY) > app.height/10:
-#                 app.playerAngleY -= abs(angleDiff) * 5
-#     app.prevy = mousey
+    if app.prevy != 0:
+        angleDiff = app.prevy - mousey
+        if angleDiff < 0:
+            app.playerAngleY -= abs(angleDiff) * 5
+            if abs(app.playerAngleY) > app.height/10:
+                app.playerAngleY += abs(angleDiff) * 5
+        else:
+            app.playerAngleY += abs(angleDiff) * 5
+            if abs(app.playerAngleY) > app.height/10:
+                app.playerAngleY -= abs(angleDiff) * 5
+    app.prevy = mousey
 
 def playerWon(app):
     drawLabel('You Win',app.width/2,app.height/2,size=200)
