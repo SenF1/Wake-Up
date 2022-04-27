@@ -18,8 +18,12 @@ def maze(row,col):
     toVisit = [(2,0),(0,2)]
     # stores all possible toVisit locations with corresponding visited location
     directionMap = {(2,0):(0,0),(0,2):(0,0)}
+    count = 0
 
     while len(visited) == 1 or len(toVisit) > 0:
+        count+=1
+        if count > 500:
+            return None
         index = random.randint(0,len(toVisit)-1)
         nextVisit = toVisit[index]
         toVisit.remove(nextVisit)

@@ -3,29 +3,32 @@ import math
 # Watched: https://www.youtube.com/watch?v=-L-WgKMFuhE&ab_channel=SebastianLague
 # Sources: http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html#the-a-star-algorithm
 
-def pathSolution(maze, start, end, rows, cols):
+
+def pathSolution(maze, start, end):
+    rows = len(maze)
+    cols = len(maze[0])
     startNode = (start[0], start[1], 0)
     toVisit = []
     visited = []
     toVisit.append(startNode)
     directionMap = {startNode:None}
-    
     # Get the node with lowest f 
     while len(toVisit) > 0:
         current = toVisit[0]
+        if current == None or end == None:
+            return None
         if len(toVisit) > 1:
             for someNode in toVisit:
                 if someNode[2] < current[2]:
                     current = someNode
         toVisit.remove(current)
-
         # Find path
         if current[0]==end[0] and current[1]==end[1]:
             path = []
             while directionMap[current]:
                 path.append((current[0],current[1]))
                 current = directionMap.get(current)
-            return path
+            return path[::-1]
 
         visited.append(current)
         # All potential directions: left, right, top, down
@@ -44,3 +47,4 @@ def pathSolution(maze, start, end, rows, cols):
                         if newNode not in visited:
                             toVisit.append(newNode)
                             directionMap[newNode] = (current[0],current[1],current[2])
+    return None
