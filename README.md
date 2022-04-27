@@ -6,3 +6,5 @@ Background: You, a CMU student, studied late at night for finals week. In case y
 How to run: The user should run the main.py file in an editor. This project requires cmu_cs3_graphics and pygame to function.
 
 Controller: The player moves forward and backward with 'w', 's'. The player rotates left and right with 'a', 'd'. You can open the maze map with 'e' and request hints by pressing 'h'.
+
+This game was done with raycasting, Prim's algorithm, and the A* search algorithm.
