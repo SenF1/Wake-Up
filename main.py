@@ -187,7 +187,7 @@ def onStep(app):
         app.step%=40
 
         distance = math.dist((app.playerx,app.playery),(app.end[0]*app.cellSize,app.end[1]*app.cellSize))
-        volume = ((app.mapSize*4)/(distance))
+        volume = (app.mapSize)/(distance) * app.mazeSize
         pygame.mixer.music.set_volume(volume)
 
         app.moveSpeed = 3
